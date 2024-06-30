@@ -66,7 +66,7 @@ async def format_leaderboard_response(
     beatmap: Beatmap,
 ) -> bytes:
     """\
-    {ranked_status}|{serv_has_osz2}|{bid}|{bsid}|{len(scores)}|{fa_track_id}|{fa_license_text}
+    {ranked_status}|{serv_has_osz}|{bid}|{bsid}|{len(scores)}|{fa_track_id}|{fa_license_text}
     {offset}\n{beatmap_name}\n{rating}
     {id}|{name}|{score}|{max_combo}|{n50}|{n100}|{n300}|{nmiss}|{nkatu}|{ngeki}|{perfect}|{mods}|{userid}|{rank}|{time}|{has_replay}
     {id}|{name}|{score}|{max_combo}|{n50}|{n100}|{n300}|{nmiss}|{nkatu}|{ngeki}|{perfect}|{mods}|{userid}|{rank}|{time}|{has_replay}
@@ -157,7 +157,7 @@ class LeaderboardType:
     Country = 4
 
 
-# GET /web/osu-osz2-getscores.php
+# GET /web/osu-osz-getscores.php
 # ?s=0
 # &vv=4
 # &v=1
@@ -170,7 +170,7 @@ class LeaderboardType:
 # &a=0
 # &us=cmyui
 # &ha=0cc175b9c0f1b6a831c399e269772661
-@osu_web_router.get("/web/osu-osz2-getscores.php")
+@osu_web_router.get("/web/osu-osz-getscores.php")
 async def get_scores_handler(
     username: str = Query(..., alias="us"),
     password_md5: str = Query(..., alias="ha"),
